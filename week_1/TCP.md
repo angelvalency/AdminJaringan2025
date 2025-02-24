@@ -45,13 +45,13 @@
   
       ![App Screenshoot](img/HTTP_request_time.png)
 
-      &nbsp;&nbsp; Waktu yang  Client mengirimkan HTTP request terjadi pada detik ke `3,955688s.`
+      &nbsp;&nbsp; Waktu Client mengirimkan HTTP request terjadi pada detik ke `0,911310s`.
 
    - Waktu dari server mengirimkan server 
 
       ![App Screenshoot](img/HTTP_response_time.png)
 
-     &nbsp;&nbsp; Waktu yang  Client mengirimkan HTTP request terjadi pada detik ke `3,955688s.`
+     &nbsp;&nbsp; Waktu server mengirimkan server terjadi pada detik ke `3,955688s`.
 
 
    -  durasi pengiriman untuk menyelesaikan HTTP Response
