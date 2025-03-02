@@ -61,7 +61,7 @@
 
   Unix and Linux system administration handbook by Evi Nemeth Garth Snyder Trent R. Hein Ben Whaley Dan Mackin
 
-  ![App Screenshoot](assets/img/cover-book-unix-linux-sysadmin\cover_book_unix_linux_administration_handbook.png)
+  ![App Screenshoot](assets/img/cover-book-unix-linux-sysadmin/cover_book_unix_linux_administration_handbook.png)
 
 --- 
 ## Chapter 4: Process Control
