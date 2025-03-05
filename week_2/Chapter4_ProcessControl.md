@@ -44,7 +44,6 @@
       - [L.1 cron: Menjadwalkan Perintah](#l1-cron-menjadwalkan-perintah)
       - [L.2 Format Crontab](#l2-format-crontab)
       - [Contoh Penggunaan](#contoh-penggunaan)
-<<<<<<< HEAD
       - [L.3 Manajemen Crontab](#l3-manajemen-crontab)
     - [M. Systemd Timer: Alternatif untuk Cron Job](#m-systemd-timer-alternatif-untuk-cron-job)
       - [M.1 Melihat Timer yang Aktif](#m1-melihat-timer-yang-aktif)
@@ -55,21 +54,17 @@
       - [M.3.3. Rotasi File Log](#m33-rotasi-file-log)
       - [M.4.4. Menjalankan Batch Job](#m44-menjalankan-batch-job)
       - [M.5.5. Backup dan Sinkronisasi Data](#m55-backup-dan-sinkronisasi-data)
-    
-=======
       - [L.3 Manajemen Crontab](#f3-manajemen-crontab)
-    - [M. Systemd Timer: Alternatif untuk Cron Job](#g-systemd-timer-alternatif-untuk-cron-job)
+      - [M. Systemd Timer: Alternatif untuk Cron Job](#g-systemd-timer-alternatif-untuk-cron-job)
       - [M.1 Melihat Timer yang Aktif](#g1-melihat-timer-yang-aktif)
       - [M.2 Contoh Konfigurasi Systemd Timer](#g2-contoh-konfigurasi-systemd-timer)
       - [M.3 Penggunaan Umum Systemd Timer \& Cron Job](#g3-penggunaan-umum-systemd-timer--cron-job)
       - [M.3.1. Mengirim Email Otomatis](#g31-mengirim-email-otomatis)
-    - [N. Membersihkan File Sampah Secara Otomatis](#g32-membersihkan-file-sampah-secara-otomatis)
-      - [N.1 Rotasi File Log](#g33-rotasi-file-log)
-      - [N..2 Menjalankan Batch Job](#g44-menjalankan-batch-job)
-      - [N.3 Backup dan Sinkronisasi Data](#g55-backup-dan-sinkronisasi-data)
-
->>>>>>> 4d3bf48a2ba9d1bbf27560ca40ee03a9dcfb6a81
---- 
+      - [M.3.2 Membersihkan File Sampah Secara Otomatis](#g32-membersihkan-file-sampah-secara-otomatis)
+      - [M.3.3 Rotasi File Log](#g33-rotasi-file-log)
+      - [M.3.4 Menjalankan Batch Job](#g44-menjalankan-batch-job)
+      - [M.3.5 Backup dan Sinkronisasi Data](#g55-backup-dan-sinkronisasi-data)
+        
 ## Chapter 4: Process Control
 
 ### A. Components of a Process  
