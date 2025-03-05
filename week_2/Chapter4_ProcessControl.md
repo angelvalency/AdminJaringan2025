@@ -56,10 +56,8 @@
       - [M.4.4. Menjalankan Batch Job](#m44-menjalankan-batch-job)
       - [N.5.5. Backup dan Sinkronisasi Data](#n55-backup-dan-sinkronisasi-data)
         
-=======
     
---- 
->>>>>>> c065a66 (add percobaan chap 4)
+---
 ## Chapter 4: Process Control
 
 ### A. Components of a Process  
@@ -179,14 +177,15 @@ ps aux
 ![App-screenshot](assets/img/chapter-4/ps_ps-a_ps-aux.png)
 
 Contoh output:  
-```bash
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root         1  0.0  0.0  22556  2584 ?        Ss   2019   0:02 /sbin/init
-root         2  0.0  0.0      0     0 ?        S    2019   0:00 [kthreadd]
-root         9  0.0  0.0      0     0 ?        S    2019   0:00 [ksoftirqd/0]
-```
+  ```bash
+  USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+  root         1  0.0  0.0  22556  2584 ?        Ss   2019   0:02 /sbin/init
+  root         2  0.0  0.0      0     0 ?        S    2019   0:00 [kthreadd]
+  root         9  0.0  0.0      0     0 ?        S    2019   0:00 [ksoftirqd/0]
+  ```
 
-&nbsp;&nbsp;&nbsp;&nbsp; Jika ingin melihat informasi lebih teknis dengan lebih cepat, gunakan:  
+  &nbsp;&nbsp;&nbsp;&nbsp; Jika ingin melihat informasi lebih teknis dengan lebih cepat, gunakan:  
+
 ```bash
 ps lax
 ```
@@ -230,23 +229,27 @@ pidof /usr/bin/firefox
 
 &nbsp;&nbsp;&nbsp;&nbsp; `Niceness` adalah `petunjuk numerik` kepada `kernel` tentang bagaimana suatu `proses harus diperlakukan dibandingkan dengan proses lain yang menggunakan CPU`.  
 
-- Nilai `niceness` yang `tinggi` berarti `prioritas rendah` (proses akan mendapat lebih sedikit waktu CPU).  
-- Nilai `niceness` yang `rendah atau negatif` berarti `prioritas tinggi` (proses akan mendapat lebih banyak waktu CPU).  
+  - Nilai `niceness` yang `tinggi` berarti `prioritas rendah` (proses akan mendapat lebih sedikit waktu CPU).  
+  - Nilai `niceness` yang `rendah atau negatif` berarti `prioritas tinggi` (proses akan mendapat lebih banyak waktu CPU).  
 
-`Range nilai niceness` berbeda pada setiap sistem:
-- `Linux`: -20 hingga +19  
-- `FreeBSD`: -20 hingga +20  
+  `Range nilai niceness` berbeda pada setiap sistem:
+  - `Linux`: -20 hingga +19  
+  - `FreeBSD`: -20 hingga +20  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Jika menjalankan proses yang `memerlukan banyak CPU di background`, dapat `memberinya nilai niceness tinggi` agar proses lain tetap berjalan lancar. 
 
 #### I. 1 Menggunakan nice  
 &nbsp;&nbsp;&nbsp;&nbsp; Untuk memulai proses dengan nilai `niceness` tertentu:  
 ```bash
-nice -n nilai_nice [perintah]
-# Contoh
-nice -n 10 sh infinite.sh &
+  nice -n nilai_nice [perintah]
+  # Contoh
+  nice -n 10 sh infinite.sh &
+
 ```
-![App-screenshot](assets/img/chapter-4/nice_n_10_sh_infinite.png)
+- Percobaan menggunakan `nice`
+  
+
+  ![App-screenshot](assets/img/chapter-4/nice_n_10_sh_infinite.png)
 
 
 #### I.2 Menggunakan renice  
@@ -256,7 +259,10 @@ renice -n nilai_nice -p pid
 # Contoh
 renice -n 10 -p 1234
 ```
-![App-screenshot](assets/img/chapter-4/renice_n_10_pid.png)
+- Percobaan menggunakan  `renice`
+  
+
+  ![App-screenshot](assets/img/chapter-4/renice_n_10_pid.png)
 
 #### I.3 Hubungan antara nice value dan priority  
 &nbsp;&nbsp;&nbsp;&nbsp; Di Linux, prioritas proses dihitung dengan rumus:  
@@ -277,7 +283,7 @@ Secara default, `nice_value` adalah 0. Semakin rendah nilai `nice_value`, semaki
 
 &nbsp;&nbsp;&nbsp;&nbsp; Selain informasi tentang proses, `/proc` juga menyimpan statistik dan berbagai data sistem lainnya.
 
-![process-information](materi/process-control/data/process-explanation.png)
+  ![process-information](materi/process-control/data/process-explanation.png)
 
 ---
 
@@ -302,13 +308,17 @@ open("/proc/1/stat", O_RDONLY)           = 8
 read(8, "1 (init) S 0 1 1 0 -1 4202752"..., 1023) = 168
 close(8)                                = 0
 ```
-- install strace
-![App-screenshot](assets/img/chapter-4/sudo_apt_install_trace.png)
+&nbsp;&nbsp;&nbsp;&nbsp; Dari log ini terlihat bahwa `top` pertama-tama memeriksa waktu saat ini, lalu membuka dan membaca direktori `/proc`. Selanjutnya, program mengakses file  `/proc/1/stat` untuk mendapatkan informasi tentang proses `init`.
+
+- Percobaan install strace
+  
+
+  ![App-screenshot](assets/img/chapter-4/sudo_apt_install_trace.png)
 
 - try strace
-![App-screenshot](assets/img/chapter-4/strace_5316.png)
+ 
 
-&nbsp;&nbsp;&nbsp;&nbsp; Dari log ini terlihat bahwa `top` pertama-tama memeriksa waktu saat ini, lalu membuka dan membaca direktori `/proc`. Selanjutnya, program mengakses file  `/proc/1/stat` untuk mendapatkan informasi tentang proses `init`.
+  ![App-screenshot](assets/img/chapter-4/strace_5316.png)
 
 ---
 
@@ -325,22 +335,49 @@ atau
 
 kill -KILL pid
 ```
+- Percobaan looping `:(){ :|:& };:`
+  
+  ![App-screenshoot](assets/img/chapter-4/bash_loop.png)
+
+  ![App-screenshot](assets/img/chapter-4/cmd_loop_while.png)
+
+- Dicheck menggunakan `top`
+  
+
+  ![App-screenshot](assets/img/chapter-4/top.png)
+
+
+  ![App-screenshot](assets/img/chapter-4/pkill_usr_libexe.png)
+
 
 &nbsp;&nbsp;&nbsp;&nbsp; Untuk mencari penyebab runaway process, Anda bisa menggunakan `strace` atau `truss`. Jika runaway process menghasilkan banyak output, ini bisa menyebabkan penyimpanan penuh.  
 
-Anda bisa mengecek penggunaan penyimpanan dengan perintah:
+Cek penggunaan penyimpanan dengan perintah:
 
 ```bash
 df -h
 ```
+- Percobaan `df -h`
+  
 
-&nbsp;&nbsp;&nbsp;&nbsp;Jika sistem sudah penuh, gunakan perintah **du** untuk menemukan file atau direktori terbesar.
+  ![App-screenshoot](assets/img/chapter-4/df_h.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;Jika sistem sudah penuh, gunakan perintah   du   untuk menemukan file atau direktori terbesar.
+
+- Percobaan `du`
+
+
+  ![App-screenshoot](assets/img/chapter-4/du.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;Untuk mengetahui file mana yang sedang dibuka oleh proses runaway, gunakan perintah:
 
 ```bash
 lsof -p pid
 ```
+- Percobaan `lsof -p pid`
+
+
+  ![App-screenshoot](assets/img/chapter-4/sudo_lsof_p_8.png)
 
 ---
 
@@ -356,6 +393,12 @@ lsof -p pid
 
 - `Linux` → `/var/spool/cron`
 - `FreeBSD` → `/var/cron/tabs`
+
+- Percobaan menjadwalkan perintah`cron`
+  
+
+  ![App-screenshot](assets/img/chapter-4/mengedit_crontab_untuk_scedulling.png)
+
 
 #### M.2 Format Crontab  
 
@@ -378,6 +421,7 @@ lsof -p pid
 # Menjalankan perintah setiap hari pukul 02:30 pagi
 30 2 * * * perintah
 
+
 # Menjalankan perintah setiap tanggal 1 pukul 22:30
 30 22 1 * * perintah
 
@@ -397,6 +441,17 @@ lsof -p pid
 */30 * * * * perintah
 ```
 
+- Percobaan membuat perintah setiap hari pukul 02:30 pagi  `30 2 * * * perintah`
+  
+  
+  ![App-screenshot](assets/img/chapter-4/file_crontab.png)
+
+  
+- Percobaan membuat perintah setiap tanggal  1 pukul 02:30 pagi  `30 2 1 * * * perintah`
+  
+  
+  ![App-screenshot](assets/img/chapter-4/crontab_reminding_tgl1.png)
+  
 ---
 
 #### M.4 Manajemen Crontab  
@@ -418,6 +473,23 @@ lsof -p pid
   ```bash
   crontab -r
   ```
+
+
+- Edit crontab:
+  
+
+  ![App-screenshot](assets/img/chapter-4/edit_crontab.png)
+
+- Crontab aktif:
+  
+  
+  ![App-screenshot](assets/img/chapter-4/crontab_aktif.png)
+
+- Hapus crontab:
+  
+  
+  ![App-screenshot](assets/img/chapter-4/hapus_crontab.png)
+
 
 ---
 
@@ -470,7 +542,16 @@ Persistent=true
 
 [Install]
 WantedBy=timers.target
+
+
 ```
+
+
+- Percobaan
+  
+
+  ![App-screenshot](assets/img/chapter-4/cat_logrotate.png)
+
 
 **Penjelasan:**  
 - `OnCalendar=daily` → Menjadwalkan tugas agar berjalan setiap hari.  
@@ -497,6 +578,10 @@ Cron
 EOF
 ```
 
+- Percobaan mengirim email otomatis
+  
+  ![App-screenshot](assets/img/chapter-4/email_otomatis.png)
+
 #### N.3.2. Membersihkan File Sampah Secara Otomatis  
  &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa `menggunakan cron atau systemd timer` untuk `menjalankan skrip pembersihan file sampah`.  
 
@@ -505,7 +590,9 @@ EOF
 ```bash
 0 0 * * * /usr/bin/find /home/abdou/.local/share/Trash/files -mtime +30 -exec /bin/rm -f {} \;
 ```
-
+- Percobaan menggunakan systemd timer untuk membersihkan file sampah
+  
+  ![App-screenshot](assets/img/chapter-4/trash_file.png)
 
 #### N.3.3. Rotasi File Log  
 
@@ -524,6 +611,9 @@ Dengan cron job:
 
 &nbsp;&nbsp;&nbsp;&nbsp; Tugas ini akan `berjalan setiap 30 menit untuk memproses antrian pesan`.  
 
+- Percobaan menggunakan batch job
+  
+  ![App-screenshot](assets/img/chapter-4/batch_job.png)
 
 #### N.5.5. Backup dan Sinkronisasi Data  
  
