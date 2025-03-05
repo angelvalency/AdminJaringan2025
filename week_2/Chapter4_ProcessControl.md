@@ -99,7 +99,7 @@
 
  &nbsp;&nbsp;&nbsp;&nbsp; `UID` digunakan oleh sistem operasi untuk `mengidentifikasi user yang berbeda`. Misalnya, jika sebuah program dijalankan dengan `hak administrator`, `UID-nya` bisa `berbeda dari UID penggunanya`, sehingga `proses tersebut dapat mengakses lebih banyak sumber daya daripada yang biasanya diperbolehkan`.
 
-### D. Lifecycle of a Process
+### E. Lifecycle of a Process
 
 &nbsp;&nbsp;&nbsp;&nbsp; `Siklus Hidup Proses(Lifecycle of a Process) dimulai` ketika sebuah `proses baru dibuat` menggunakan `perintah fork`. Perintah ini `menyalin proses yang sudah ada`, sehingga `proses baru memiliki karakteristik yang hampir sama dengan proses induknya`. Namun, `proses baru` memiliki `PID yang berbeda` dan informasi akunting sendiri.  
 
@@ -107,7 +107,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp; Saat `komputer dinyalakan`, sistem operasi otomatis membuat beberapa `proses penting`. Salah satunya adalah `init atau systemd`, yang selalu memiliki `PID 1`. Proses ini `bertanggung jawab menjalankan skrip startup sistem dan menjadi induk bagi semua proses lain`, `kecuali yang langsung dibuat oleh kernel`.
 
-### E. Signals
+### F. Signals
 
 &nbsp;&nbsp;&nbsp;&nbsp; `Sinyal (Signals)` adalah `cara sistem` untuk `memberi tahu suatu proses bahwa sebuah peristiwa telah terjadi`. Sinyal digunakan untuk berbagai keperluan, mulai dari `komunikasi antarproses hingga menangani kesalahan dalam program`.  
 
@@ -129,11 +129,11 @@
 - **HUP** → Dikirim ketika terminal tempat proses berjalan ditutup. Awalnya digunakan untuk menandakan putusnya sambungan telepon, tetapi sekarang sering digunakan untuk meminta daemon agar restart dan memuat ulang konfigurasi baru.  
 - **QUIT** → Mirip dengan TERM, tetapi jika tidak ditangkap, proses akan menghasilkan core dump (file yang berisi informasi debugging). Beberapa program menggunakan sinyal ini untuk fungsi tertentu.
 
-### F. kill: send signals
+### G. kill: send signals
 
 Menghentikan dan Memantau Proses di Sistem Operasi Linux  
 
-#### F.1 Menghentikan Proses dengan `kill`  
+#### G.1 Menghentikan Proses dengan `kill`  
 &nbsp;&nbsp;&nbsp;&nbsp; Perintah **`kill`** digunakan untuk menghentikan proses yang sedang berjalan. Perintah ini bisa mengirim berbagai jenis sinyal ke suatu proses, tetapi secara default akan mengirim sinyal **TERM (terminate)**.  
 
 Format dasar penggunaan:  
@@ -145,7 +145,7 @@ kill [-signal] pid
 
 &nbsp;&nbsp;&nbsp;&nbsp; Jika `kill` dijalankan tanpa menyertakan nomor sinyal, proses tidak selalu langsung berhenti karena sinyal `TERM` bisa ditolak atau diabaikan oleh proses tersebut. Namun, jika menggunakan `kill -9 pid`, proses akan langsung dihentikan karena sinyal `KILL` tidak bisa diabaikan atau diblokir.  
 
-#### F.2 Menghentikan Proses Berdasarkan Nama  
+#### G.2 Menghentikan Proses Berdasarkan Nama  
 - `killall` → Digunakan untuk menghentikan semua proses berdasarkan nama. Tidak tersedia di semua sistem.  
   ```bash
   killall firefox
@@ -157,10 +157,10 @@ kill [-signal] pid
 
 ---
 
-#### F.3 Memantau Proses dengan `ps` 
+#### G.3 Memantau Proses dengan `ps` 
 &nbsp;&nbsp;&nbsp;&nbsp; Perintah `ps` digunakan untuk melihat daftar proses yang sedang berjalan di sistem. Informasi yang ditampilkan meliputi **PID (Process ID), UID (User ID), penggunaan memori dan CPU, serta status proses.  
 
-#### F.4 Menampilkan Semua Proses yang Berjalan  
+#### G.4 Menampilkan Semua Proses yang Berjalan  
 &nbsp;&nbsp;&nbsp;&nbsp; Gunakan perintah berikut untuk melihat semua proses yang berjalan di sistem dengan detail:  
 ```bash
 ps aux
@@ -201,7 +201,7 @@ pgrep firefox
 pidof /usr/bin/firefox
 ```
 
-### G. Monitoring Interaktif dengan top  
+### H. Monitoring Interaktif dengan top  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Perintah `top`  `memberikan tampilan real-time` yang dinamis tentang `sistem yang sedang berjalan`.  top  menampilkan `ringkasan informasi sistem serta daftar proses atau thread yang sedang dikelola oleh kernel Linux`.  
 
@@ -211,7 +211,7 @@ pidof /usr/bin/firefox
 
 ---
 
-### H. Nice dan Renice: Mengubah Prioritas Proses  
+### I. Nice dan Renice: Mengubah Prioritas Proses  
 
 &nbsp;&nbsp;&nbsp;&nbsp; `Niceness` adalah `petunjuk numerik` kepada `kernel` tentang bagaimana suatu `proses harus diperlakukan dibandingkan dengan proses lain yang menggunakan CPU`.  
 
@@ -224,7 +224,7 @@ pidof /usr/bin/firefox
 
 &nbsp;&nbsp;&nbsp;&nbsp; Jika menjalankan proses yang `memerlukan banyak CPU di background`, dapat `memberinya nilai niceness tinggi` agar proses lain tetap berjalan lancar. 
 
-#### H. 1 Menggunakan nice  
+#### I. 1 Menggunakan nice  
 &nbsp;&nbsp;&nbsp;&nbsp; Untuk memulai proses dengan nilai `niceness` tertentu:  
 ```bash
 nice -n nilai_nice [perintah]
@@ -232,7 +232,7 @@ nice -n nilai_nice [perintah]
 nice -n 10 sh infinite.sh &
 ```
 
-#### H.2 Menggunakan renice  
+#### I.2 Menggunakan renice  
 &nbsp;&nbsp;&nbsp;&nbsp; Untuk mengubah nilai `niceness` dari proses yang sudah berjalan:  
 ```bash
 renice -n nilai_nice -p pid
@@ -240,7 +240,7 @@ renice -n nilai_nice -p pid
 renice -n 10 -p 1234
 ```
 
-#### H.3 Hubungan antara nice value dan priority  
+#### I.3 Hubungan antara nice value dan priority  
 &nbsp;&nbsp;&nbsp;&nbsp; Di Linux, prioritas proses dihitung dengan rumus:  
 > **priority_value = 20 + nice_value**  
 
@@ -248,7 +248,7 @@ Secara default, `nice_value` adalah 0. Semakin rendah nilai `nice_value`, semaki
 
 ---
 
-### I. Sistem File /proc
+### J. Sistem File /proc
 
 &nbsp;&nbsp;&nbsp;&nbsp; Perintah `ps` dan `top` di Linux mendapatkan informasi status proses dari direktori `/proc`. `/proc` adalah pseudo-filesystem yang memungkinkan kernel mengekspos berbagai informasi tentang keadaan sistem.  
 
@@ -265,7 +265,7 @@ Berikut adalah penjelasan dalam bahasa Indonesia:
 
 ---
 
-### J. Strace dan Truss  
+### K. Strace dan Truss  
 
 Untuk mengetahui apa yang sedang dilakukan suatu proses, Anda bisa menggunakan  `strace di Linux`  atau  `truss di FreeBSD`. Perintah ini digunakan untuk `melacak panggilan sistem (system calls) dan sinyal (signals) yang terjadi dalam suatu proses`. Dengan alat ini, Anda bisa melakukan debugging atau memahami bagaimana suatu program bekerja.
 
@@ -290,7 +290,7 @@ close(8)                                = 0
 
 ---
 
-### K. Proses Runaway (Tidak Terkendali)
+### L. Proses Runaway (Tidak Terkendali)
 
 &nbsp;&nbsp;&nbsp;&nbsp; Terkadang, suatu `proses bisa berhenti merespons dan berjalan tanpa kendali`. Proses ini `mengabaikan prioritas penjadwalannya` dan `menggunakan 100% CPU, sehingga sistem menjadi lambat`. Proses seperti ini disebut `runaway process`.
 
@@ -322,9 +322,9 @@ lsof -p pid
 
 ---
 
-### L. Proses Berkala (Periodic Processes)  
+### M. Proses Berkala (Periodic Processes)  
 
-#### L.1 cron: Menjadwalkan Perintah  
+#### M.1 cron: Menjadwalkan Perintah  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Daemon  cron   (disebut   crond  di RedHat) adalah alat yang digunakan untuk menjalankan perintah berdasarkan jadwal tertentu.  cron   berjalan sejak sistem dinyalakan dan akan terus aktif selama sistem masih berjalan.
 
@@ -335,7 +335,7 @@ lsof -p pid
 - `Linux` → `/var/spool/cron`
 - `FreeBSD` → `/var/cron/tabs`
 
-#### L.2 Format Crontab  
+#### M.2 Format Crontab  
 
 &nbsp;&nbsp;&nbsp;&nbsp; File crontab terdiri dari lima kolom yang menentukan kapan perintah akan dijalankan, diikuti oleh perintah yang akan dieksekusi:
 
@@ -377,7 +377,7 @@ lsof -p pid
 
 ---
 
-#### F.3 Manajemen Crontab  
+#### M.3 Manajemen Crontab  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Perintah `crontab` digunakan untuk `membuat, mengedit, atau menghapus jadwal cron`:
 
@@ -398,7 +398,7 @@ lsof -p pid
 
 ---
 
-### G. Systemd Timer: Alternatif untuk Cron Job
+### N. Systemd Timer: Alternatif untuk Cron Job
 
 &nbsp;&nbsp;&nbsp;&nbsp; `Systemd timer` adalah `file konfigurasi unit dalam systemd` yang namanya `diakhiri` dengan `.timer`. `Timer` ini digunakan sebagai `alternatif` dari `cron job` untuk `menjadwalkan tugas secara otomatis`.  
 
@@ -408,7 +408,7 @@ lsof -p pid
 
 ---
 
-#### G.1 Melihat Timer yang Aktif  
+#### N.1 Melihat Timer yang Aktif  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Untuk melihat daftar `timer` yang sedang aktif di sistem, gunakan perintah berikut:  
 
@@ -429,7 +429,7 @@ Fri 2021-10-15 00:00:00 UTC  1h 1min left Thu 2021-10-14 00:00:00 UTC  22h ago  
 
 ---
 
-#### G.2 Contoh Konfigurasi Systemd Timer  
+#### N.2 Contoh Konfigurasi Systemd Timer  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Berikut ini adalah contoh file unit untuk `logrotate.timer`:  
 
@@ -456,9 +456,9 @@ WantedBy=timers.target
 
 ---
 
-#### G.3 Penggunaan Umum Systemd Timer & Cron Job  
+#### N.3 Penggunaan Umum Systemd Timer & Cron Job  
 
-#### G.3.1. Mengirim Email Otomatis  
+#### N.3.1. Mengirim Email Otomatis  
 &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa `mengirim laporan` atau `hasil eksekusi` perintah `ke email secara otomatis`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Contoh: Mengirim laporan bulanan pada pukul 04:30 pagi setiap tanggal 25:  
@@ -472,7 +472,7 @@ Cron
 EOF
 ```
 
-#### G.3.2. Membersihkan File Sampah Secara Otomatis  
+#### N.3.2. Membersihkan File Sampah Secara Otomatis  
  &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa `menggunakan cron atau systemd timer` untuk `menjalankan skrip pembersihan file sampah`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Contoh: Menghapus file yang lebih dari 30 hari di folder **Trash** setiap tengah malam:  
@@ -481,12 +481,12 @@ EOF
 0 0 * * * /usr/bin/find /home/abdou/.local/share/Trash/files -mtime +30 -exec /bin/rm -f {} \;
 ```
 
-#### G.3.3. Rotasi File Log  
+#### N.3.3. Rotasi File Log  
 &nbsp;&nbsp;&nbsp;&nbsp; `Rotasi file log` dilakukan dengan `membagi log` menjadi `beberapa bagian` `berdasarkan ukuran atau tanggal` untuk   `memastikan` bahwa `sistem tidak kehabisan ruang penyimpanan` akibat `file log` yang `terus bertambah`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Systemd timer atau cron bisa digunakan untuk menjalankan rotasi log secara berkala.  
 
-#### G.4.4. Menjalankan Batch Job 
+#### N.4.4. Menjalankan Batch Job 
 &nbsp;&nbsp;&nbsp;&nbsp; `Batch job` digunakan untuk `menjalankan tugas berat` seperti `pemrosesan data` dalam `jumlah besar`. Misalnya, sebuah sistem antrian pesan yang harus diproses secara berkala.  
 
 Dengan cron job:  
@@ -497,7 +497,7 @@ Dengan cron job:
 
 &nbsp;&nbsp;&nbsp;&nbsp; Tugas ini akan `berjalan setiap 30 menit untuk memproses antrian pesan`.  
 
-#### G.5.5. Backup dan Sinkronisasi Data  
+#### N.5.5. Backup dan Sinkronisasi Data  
 &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa menggunakan s`istem terjadwal` untuk `melakukan backup` atau `mirroring` `file ke sistem lain`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp;Contoh: Sinkronisasi direktori `/var/backups/` ke server remote setiap hari pukul 01:00 dini hari menggunakan `rsync`:  
