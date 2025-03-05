@@ -31,7 +31,7 @@
 
   Rangkuman :
   - [Chapter 4: Process Control](Chapter4_ProcessControl.md)
-  - [Chapter 5: The Filesystem](Chapter5_TheFilesystem.md)
+  - [Chapter 5: The Filesystem](Chapter5_TheFileSystem.md)
   - [Chapter 6: Software Installation](Chapter6_SoftwareInstallation.md)
 
 ---
