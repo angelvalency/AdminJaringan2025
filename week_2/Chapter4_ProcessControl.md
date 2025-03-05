@@ -386,11 +386,8 @@ lsof -p pid
 
 ---
 
-<<<<<<< HEAD
-#### L.3 Manajemen Crontab  
-=======
 #### M.4 Manajemen Crontab  
->>>>>>> 4d3bf48a2ba9d1bbf27560ca40ee03a9dcfb6a81
+
 
 &nbsp;&nbsp;&nbsp;&nbsp; Perintah `crontab` digunakan untuk `membuat, mengedit, atau menghapus jadwal cron`:
 
@@ -411,11 +408,7 @@ lsof -p pid
 
 ---
 
-<<<<<<< HEAD
 ### M. Systemd Timer: Alternatif untuk Cron Job
-=======
-### N. Systemd Timer: Alternatif untuk Cron Job
->>>>>>> 4d3bf48a2ba9d1bbf27560ca40ee03a9dcfb6a81
 
 &nbsp;&nbsp;&nbsp;&nbsp; `Systemd timer` adalah `file konfigurasi unit dalam systemd` yang namanya `diakhiri` dengan `.timer`. `Timer` ini digunakan sebagai `alternatif` dari `cron job` untuk `menjadwalkan tugas secara otomatis`.  
 
@@ -425,11 +418,7 @@ lsof -p pid
 
 ---
 
-<<<<<<< HEAD
 #### M.1 Melihat Timer yang Aktif  
-=======
-#### N.1 Melihat Timer yang Aktif  
->>>>>>> 4d3bf48a2ba9d1bbf27560ca40ee03a9dcfb6a81
 
 &nbsp;&nbsp;&nbsp;&nbsp; Untuk melihat daftar `timer` yang sedang aktif di sistem, gunakan perintah berikut:  
 
@@ -450,11 +439,7 @@ Fri 2021-10-15 00:00:00 UTC  1h 1min left Thu 2021-10-14 00:00:00 UTC  22h ago  
 
 ---
 
-<<<<<<< HEAD
 #### M.2 Contoh Konfigurasi Systemd Timer  
-=======
-#### N.2 Contoh Konfigurasi Systemd Timer  
->>>>>>> 4d3bf48a2ba9d1bbf27560ca40ee03a9dcfb6a81
 
 &nbsp;&nbsp;&nbsp;&nbsp; Berikut ini adalah contoh file unit untuk `logrotate.timer`:  
 
@@ -481,15 +466,11 @@ WantedBy=timers.target
 
 ---
 
-<<<<<<< HEAD
+
 #### M.3 Penggunaan Umum Systemd Timer & Cron Job  
 
 #### M.3.1. Mengirim Email Otomatis  
-=======
-#### N.3 Penggunaan Umum Systemd Timer & Cron Job  
 
-#### N.3.1. Mengirim Email Otomatis  
->>>>>>> 4d3bf48a2ba9d1bbf27560ca40ee03a9dcfb6a81
 &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa `mengirim laporan` atau `hasil eksekusi` perintah `ke email secara otomatis`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Contoh: Mengirim laporan bulanan pada pukul 04:30 pagi setiap tanggal 25:  
@@ -503,11 +484,8 @@ Cron
 EOF
 ```
 
-<<<<<<< HEAD
 #### M.3.2. Membersihkan File Sampah Secara Otomatis  
-=======
-#### N.3.2. Membersihkan File Sampah Secara Otomatis  
->>>>>>> 4d3bf48a2ba9d1bbf27560ca40ee03a9dcfb6a81
+
  &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa `menggunakan cron atau systemd timer` untuk `menjalankan skrip pembersihan file sampah`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Contoh: Menghapus file yang lebih dari 30 hari di folder **Trash** setiap tengah malam:  
@@ -516,20 +494,15 @@ EOF
 0 0 * * * /usr/bin/find /home/abdou/.local/share/Trash/files -mtime +30 -exec /bin/rm -f {} \;
 ```
 
-<<<<<<< HEAD
+
 #### M.3.3. Rotasi File Log  
-=======
-#### N.3.3. Rotasi File Log  
->>>>>>> 4d3bf48a2ba9d1bbf27560ca40ee03a9dcfb6a81
+
 &nbsp;&nbsp;&nbsp;&nbsp; `Rotasi file log` dilakukan dengan `membagi log` menjadi `beberapa bagian` `berdasarkan ukuran atau tanggal` untuk   `memastikan` bahwa `sistem tidak kehabisan ruang penyimpanan` akibat `file log` yang `terus bertambah`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Systemd timer atau cron bisa digunakan untuk menjalankan rotasi log secara berkala.  
 
-<<<<<<< HEAD
 #### M.4.4. Menjalankan Batch Job 
-=======
-#### N.4.4. Menjalankan Batch Job 
->>>>>>> 4d3bf48a2ba9d1bbf27560ca40ee03a9dcfb6a81
+
 &nbsp;&nbsp;&nbsp;&nbsp; `Batch job` digunakan untuk `menjalankan tugas berat` seperti `pemrosesan data` dalam `jumlah besar`. Misalnya, sebuah sistem antrian pesan yang harus diproses secara berkala.  
 
 Dengan cron job:  
@@ -540,11 +513,9 @@ Dengan cron job:
 
 &nbsp;&nbsp;&nbsp;&nbsp; Tugas ini akan `berjalan setiap 30 menit untuk memproses antrian pesan`.  
 
-<<<<<<< HEAD
+
 #### M.5.5. Backup dan Sinkronisasi Data  
-=======
-#### N.5.5. Backup dan Sinkronisasi Data  
->>>>>>> 4d3bf48a2ba9d1bbf27560ca40ee03a9dcfb6a81
+ 
 &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa menggunakan s`istem terjadwal` untuk `melakukan backup` atau `mirroring` `file ke sistem lain`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp;Contoh: Sinkronisasi direktori `/var/backups/` ke server remote setiap hari pukul 01:00 dini hari menggunakan `rsync`:  
