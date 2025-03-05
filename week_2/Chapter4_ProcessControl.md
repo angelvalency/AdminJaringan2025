@@ -50,7 +50,7 @@
       - [M.2 Contoh Konfigurasi Systemd Timer](#g2-contoh-konfigurasi-systemd-timer)
       - [M.3 Penggunaan Umum Systemd Timer \& Cron Job](#g3-penggunaan-umum-systemd-timer--cron-job)
       - [M.3.1. Mengirim Email Otomatis](#g31-mengirim-email-otomatis)
-    - [N Membersihkan File Sampah Secara Otomatis](#g32-membersihkan-file-sampah-secara-otomatis)
+    - [N. Membersihkan File Sampah Secara Otomatis](#g32-membersihkan-file-sampah-secara-otomatis)
       - [N.1 Rotasi File Log](#g33-rotasi-file-log)
       - [N..2 Menjalankan Batch Job](#g44-menjalankan-batch-job)
       - [N.3 Backup dan Sinkronisasi Data](#g55-backup-dan-sinkronisasi-data)
@@ -350,7 +350,7 @@ lsof -p pid
 +------------- menit (0 - 59)
 ```
 
-#### Contoh Penggunaan  
+#### M.3 Contoh Penggunaan  
 
 ```bash
 # Menjalankan perintah setiap hari pukul 02:30 pagi
@@ -377,7 +377,7 @@ lsof -p pid
 
 ---
 
-#### M.3 Manajemen Crontab  
+#### M.4 Manajemen Crontab  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Perintah `crontab` digunakan untuk `membuat, mengedit, atau menghapus jadwal cron`:
 
