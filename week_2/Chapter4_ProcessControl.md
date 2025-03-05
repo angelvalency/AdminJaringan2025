@@ -24,47 +24,42 @@
     - [B. The PID: process ID number](#b-the-pid-process-id-number)
     - [C. The PPID: parent process ID number](#c-the-ppid-parent-process-id-number)
     - [D. The UID and EUID: user ID and effective user ID](#d-the-uid-and-euid-user-id-and-effective-user-id)
-    - [D. Lifecycle of a Process](#d-lifecycle-of-a-process)
-    - [E. Signals](#e-signals)
-    - [F. kill: send signals](#f-kill-send-signals)
-      - [F.1 Menghentikan Proses dengan `kill`](#f1-menghentikan-proses-dengan-kill)
-      - [F.2 Menghentikan Proses Berdasarkan Nama](#f2-menghentikan-proses-berdasarkan-nama)
-      - [F.3 Memantau Proses dengan `ps`](#f3-memantau-proses-dengan-ps)
-      - [F.4 Menampilkan Semua Proses yang Berjalan](#f4-menampilkan-semua-proses-yang-berjalan)
+    - [E. Lifecycle of a Process](#e-lifecycle-of-a-process)
+    - [F. Signals](#f-signals)
+    - [G. kill: send signals](#g-kill-send-signals)
+      - [G.1 Menghentikan Proses dengan `kill`](#g1-menghentikan-proses-dengan-kill)
+      - [G.2 Menghentikan Proses Berdasarkan Nama](#g2-menghentikan-proses-berdasarkan-nama)
+  - [](#)
+      - [G.3 Memantau Proses dengan `ps`](#g3-memantau-proses-dengan-ps)
+      - [G.4 Menampilkan Semua Proses yang Berjalan](#g4-menampilkan-semua-proses-yang-berjalan)
       - [F.5 Mencari Proses Tertentu](#f5-mencari-proses-tertentu)
-    - [G. Monitoring Interaktif dengan top](#g-monitoring-interaktif-dengan-top)
-    - [H. Nice dan Renice: Mengubah Prioritas Proses](#h-nice-dan-renice-mengubah-prioritas-proses)
-      - [H. 1 Menggunakan nice](#h-1-menggunakan-nice)
-      - [H.2 Menggunakan renice](#h2-menggunakan-renice)
-      - [H.3 Hubungan antara nice value dan priority](#h3-hubungan-antara-nice-value-dan-priority)
-    - [I. Sistem File /proc](#i-sistem-file-proc)
-    - [J. Strace dan Truss](#j-strace-dan-truss)
-    - [K. Proses Runaway (Tidak Terkendali)](#k-proses-runaway-tidak-terkendali)
-    - [L. Proses Berkala (Periodic Processes)](#l-proses-berkala-periodic-processes)
-      - [L.1 cron: Menjadwalkan Perintah](#l1-cron-menjadwalkan-perintah)
-      - [L.2 Format Crontab](#l2-format-crontab)
-      - [Contoh Penggunaan](#contoh-penggunaan)
-      - [L.3 Manajemen Crontab](#l3-manajemen-crontab)
-    - [M. Systemd Timer: Alternatif untuk Cron Job](#m-systemd-timer-alternatif-untuk-cron-job)
-      - [M.1 Melihat Timer yang Aktif](#m1-melihat-timer-yang-aktif)
-      - [M.2 Contoh Konfigurasi Systemd Timer](#m2-contoh-konfigurasi-systemd-timer)
-      - [M.3 Penggunaan Umum Systemd Timer \& Cron Job](#m3-penggunaan-umum-systemd-timer--cron-job)
-      - [M.3.1. Mengirim Email Otomatis](#m31-mengirim-email-otomatis)
-      - [M.3.2. Membersihkan File Sampah Secara Otomatis](#m32-membersihkan-file-sampah-secara-otomatis)
-      - [M.3.3. Rotasi File Log](#m33-rotasi-file-log)
+    - [H. Monitoring Interaktif dengan top](#h-monitoring-interaktif-dengan-top)
+    - [I. Nice dan Renice: Mengubah Prioritas Proses](#i-nice-dan-renice-mengubah-prioritas-proses)
+      - [I. 1 Menggunakan nice](#i-1-menggunakan-nice)
+      - [I.2 Menggunakan renice](#i2-menggunakan-renice)
+      - [I.3 Hubungan antara nice value dan priority](#i3-hubungan-antara-nice-value-dan-priority)
+    - [J. Sistem File /proc](#j-sistem-file-proc)
+    - [K. Strace dan Truss](#k-strace-dan-truss)
+    - [L. Proses Runaway (Tidak Terkendali)](#l-proses-runaway-tidak-terkendali)
+    - [M. Proses Berkala (Periodic Processes)](#m-proses-berkala-periodic-processes)
+      - [M.1 cron: Menjadwalkan Perintah](#m1-cron-menjadwalkan-perintah)
+      - [M.2 Format Crontab](#m2-format-crontab)
+      - [M.3 Contoh Penggunaan](#m3-contoh-penggunaan)
+      - [M.4 Manajemen Crontab](#m4-manajemen-crontab)
+    - [N. Systemd Timer: Alternatif untuk Cron Job](#n-systemd-timer-alternatif-untuk-cron-job)
+      - [N.1 Melihat Timer yang Aktif](#n1-melihat-timer-yang-aktif)
+      - [N.2 Contoh Konfigurasi Systemd Timer](#n2-contoh-konfigurasi-systemd-timer)
+      - [N.3 Penggunaan Umum Systemd Timer \& Cron Job](#n3-penggunaan-umum-systemd-timer--cron-job)
+      - [N.3.1. Mengirim Email Otomatis](#n31-mengirim-email-otomatis)
+      - [N.3.2. Membersihkan File Sampah Secara Otomatis](#n32-membersihkan-file-sampah-secara-otomatis)
+      - [N.3.3. Rotasi File Log](#n33-rotasi-file-log)
       - [M.4.4. Menjalankan Batch Job](#m44-menjalankan-batch-job)
-      - [M.5.5. Backup dan Sinkronisasi Data](#m55-backup-dan-sinkronisasi-data)
-      - [L.3 Manajemen Crontab](#f3-manajemen-crontab)
-      - [M. Systemd Timer: Alternatif untuk Cron Job](#g-systemd-timer-alternatif-untuk-cron-job)
-      - [M.1 Melihat Timer yang Aktif](#g1-melihat-timer-yang-aktif)
-      - [M.2 Contoh Konfigurasi Systemd Timer](#g2-contoh-konfigurasi-systemd-timer)
-      - [M.3 Penggunaan Umum Systemd Timer \& Cron Job](#g3-penggunaan-umum-systemd-timer--cron-job)
-      - [M.3.1. Mengirim Email Otomatis](#g31-mengirim-email-otomatis)
-      - [M.3.2 Membersihkan File Sampah Secara Otomatis](#g32-membersihkan-file-sampah-secara-otomatis)
-      - [M.3.3 Rotasi File Log](#g33-rotasi-file-log)
-      - [M.3.4 Menjalankan Batch Job](#g44-menjalankan-batch-job)
-      - [M.3.5 Backup dan Sinkronisasi Data](#g55-backup-dan-sinkronisasi-data)
+      - [N.5.5. Backup dan Sinkronisasi Data](#n55-backup-dan-sinkronisasi-data)
         
+=======
+    
+--- 
+>>>>>>> c065a66 (add percobaan chap 4)
 ## Chapter 4: Process Control
 
 ### A. Components of a Process  
@@ -152,6 +147,8 @@ kill [-signal] pid
 - `signal` → Nomor atau nama sinyal yang dikirimkan.  
 - `pid` → ID proses yang ingin dihentikan.  
 
+![App-screenshot](assets/img/chapter-4/kill.png)
+
 &nbsp;&nbsp;&nbsp;&nbsp; Jika `kill` dijalankan tanpa menyertakan nomor sinyal, proses tidak selalu langsung berhenti karena sinyal `TERM` bisa ditolak atau diabaikan oleh proses tersebut. Namun, jika menggunakan `kill -9 pid`, proses akan langsung dihentikan karena sinyal `KILL` tidak bisa diabaikan atau diblokir.  
 
 #### G.2 Menghentikan Proses Berdasarkan Nama  
@@ -164,6 +161,7 @@ kill [-signal] pid
   pkill -u angel  # Menghentikan semua proses milik user "angel"
   ```
 
+![App-screenshot](assets/img/chapter-4/kill-all_pkill-u-angel.png)
 ---
 
 #### G.3 Memantau Proses dengan `ps` 
@@ -177,6 +175,8 @@ ps aux
 - **`a`** → Menampilkan proses dari semua pengguna.  
 - **`u`** → Menampilkan detail tambahan.  
 - **`x`** → Menampilkan proses yang tidak terkait dengan terminal.  
+
+![App-screenshot](assets/img/chapter-4/ps_ps-a_ps-aux.png)
 
 Contoh output:  
 ```bash
@@ -192,6 +192,8 @@ ps lax
 ```
 &nbsp;&nbsp;&nbsp;&nbsp; Perintah ini mirip dengan `ps aux`, tetapi tidak menampilkan nama pengguna dan grup sehingga lebih ringan dijalankan.
 
+![App-screenshot](assets/img/chapter-4/ps_lax.png)
+
 ---
 
 #### F.5 Mencari Proses Tertentu  
@@ -201,10 +203,14 @@ ps aux | grep -v grep | grep firefox
 ```
 &nbsp;&nbsp;&nbsp;&nbsp; Perintah di atas mencari semua proses yang berhubungan dengan `Firefox`, kecuali proses `grep` itu sendiri.
 
+![App-screenshot](assets/img/chapter-4/ps_aux_grep.png)
+
 &nbsp;&nbsp;&nbsp;&nbsp; Selain itu, bisa juga menggunakan `pgrep` untuk mencari `PID` suatu proses:  
 ```bash
 pgrep firefox
 ```
+![App-screenshot](assets/img/chapter-4/psgrep_firefox.png)
+
 &nbsp;&nbsp;&nbsp;&nbsp; Atau dengan `pidof` untuk mengetahui `PID` dari jalur eksekusi aplikasi:  
 ```bash
 pidof /usr/bin/firefox
@@ -240,6 +246,8 @@ nice -n nilai_nice [perintah]
 # Contoh
 nice -n 10 sh infinite.sh &
 ```
+![App-screenshot](assets/img/chapter-4/nice_n_10_sh_infinite.png)
+
 
 #### I.2 Menggunakan renice  
 &nbsp;&nbsp;&nbsp;&nbsp; Untuk mengubah nilai `niceness` dari proses yang sudah berjalan:  
@@ -248,6 +256,7 @@ renice -n nilai_nice -p pid
 # Contoh
 renice -n 10 -p 1234
 ```
+![App-screenshot](assets/img/chapter-4/renice_n_10_pid.png)
 
 #### I.3 Hubungan antara nice value dan priority  
 &nbsp;&nbsp;&nbsp;&nbsp; Di Linux, prioritas proses dihitung dengan rumus:  
@@ -270,8 +279,6 @@ Secara default, `nice_value` adalah 0. Semakin rendah nilai `nice_value`, semaki
 
 ![process-information](materi/process-control/data/process-explanation.png)
 
-Berikut adalah penjelasan dalam bahasa Indonesia:
-
 ---
 
 ### K. Strace dan Truss  
@@ -282,6 +289,7 @@ Sebagai contoh, berikut adalah log yang dihasilkan oleh `strace` ketika `dijalan
 
 ```bash
 $ strace -p 5810
+
 
 gettimeofday({1197646605,  123456}, {300, 0}) = 0
 open("/proc", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY) = 7
@@ -294,6 +302,11 @@ open("/proc/1/stat", O_RDONLY)           = 8
 read(8, "1 (init) S 0 1 1 0 -1 4202752"..., 1023) = 168
 close(8)                                = 0
 ```
+- install strace
+![App-screenshot](assets/img/chapter-4/sudo_apt_install_trace.png)
+
+- try strace
+![App-screenshot](assets/img/chapter-4/strace_5316.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp; Dari log ini terlihat bahwa `top` pertama-tama memeriksa waktu saat ini, lalu membuka dan membaca direktori `/proc`. Selanjutnya, program mengakses file  `/proc/1/stat` untuk mendapatkan informasi tentang proses `init`.
 
@@ -408,7 +421,7 @@ lsof -p pid
 
 ---
 
-### M. Systemd Timer: Alternatif untuk Cron Job
+### N. Systemd Timer: Alternatif untuk Cron Job
 
 &nbsp;&nbsp;&nbsp;&nbsp; `Systemd timer` adalah `file konfigurasi unit dalam systemd` yang namanya `diakhiri` dengan `.timer`. `Timer` ini digunakan sebagai `alternatif` dari `cron job` untuk `menjadwalkan tugas secara otomatis`.  
 
@@ -418,7 +431,7 @@ lsof -p pid
 
 ---
 
-#### M.1 Melihat Timer yang Aktif  
+#### N.1 Melihat Timer yang Aktif  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Untuk melihat daftar `timer` yang sedang aktif di sistem, gunakan perintah berikut:  
 
@@ -439,7 +452,7 @@ Fri 2021-10-15 00:00:00 UTC  1h 1min left Thu 2021-10-14 00:00:00 UTC  22h ago  
 
 ---
 
-#### M.2 Contoh Konfigurasi Systemd Timer  
+#### N.2 Contoh Konfigurasi Systemd Timer  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Berikut ini adalah contoh file unit untuk `logrotate.timer`:  
 
@@ -467,9 +480,9 @@ WantedBy=timers.target
 ---
 
 
-#### M.3 Penggunaan Umum Systemd Timer & Cron Job  
+#### N.3 Penggunaan Umum Systemd Timer & Cron Job  
 
-#### M.3.1. Mengirim Email Otomatis  
+#### N.3.1. Mengirim Email Otomatis  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa `mengirim laporan` atau `hasil eksekusi` perintah `ke email secara otomatis`.  
 
@@ -484,8 +497,7 @@ Cron
 EOF
 ```
 
-#### M.3.2. Membersihkan File Sampah Secara Otomatis  
-
+#### N.3.2. Membersihkan File Sampah Secara Otomatis  
  &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa `menggunakan cron atau systemd timer` untuk `menjalankan skrip pembersihan file sampah`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Contoh: Menghapus file yang lebih dari 30 hari di folder **Trash** setiap tengah malam:  
@@ -495,14 +507,13 @@ EOF
 ```
 
 
-#### M.3.3. Rotasi File Log  
+#### N.3.3. Rotasi File Log  
 
 &nbsp;&nbsp;&nbsp;&nbsp; `Rotasi file log` dilakukan dengan `membagi log` menjadi `beberapa bagian` `berdasarkan ukuran atau tanggal` untuk   `memastikan` bahwa `sistem tidak kehabisan ruang penyimpanan` akibat `file log` yang `terus bertambah`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Systemd timer atau cron bisa digunakan untuk menjalankan rotasi log secara berkala.  
 
 #### M.4.4. Menjalankan Batch Job 
-
 &nbsp;&nbsp;&nbsp;&nbsp; `Batch job` digunakan untuk `menjalankan tugas berat` seperti `pemrosesan data` dalam `jumlah besar`. Misalnya, sebuah sistem antrian pesan yang harus diproses secara berkala.  
 
 Dengan cron job:  
@@ -514,7 +525,7 @@ Dengan cron job:
 &nbsp;&nbsp;&nbsp;&nbsp; Tugas ini akan `berjalan setiap 30 menit untuk memproses antrian pesan`.  
 
 
-#### M.5.5. Backup dan Sinkronisasi Data  
+#### N.5.5. Backup dan Sinkronisasi Data  
  
 &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa menggunakan s`istem terjadwal` untuk `melakukan backup` atau `mirroring` `file ke sistem lain`.  
 
