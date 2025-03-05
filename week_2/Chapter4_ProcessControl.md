@@ -2,15 +2,17 @@
 <div align="center">
   <h1 style="font-weight: bold"> Unix-and-Linux-sysadmin-notes <br> Rangkuman Chapter 4: Process Control</h1>
 </div>
-<div align="center">
-  <p style="line-height: 1.5"> Unix and Linux system administration handbook by Evi Nemeth Garth Snyder Trent R. Hein Ben Whaley Dan Mackin</h3>
-  <p>
-</div>
+<br />
+<br />
 <div align="center">
   <img src="assets/img/cover-book-unix-linux-sysadmin/cover_book_unix_linux_administration_handbook.png" alt="cover_book_unix_linux_administration_handbook.png">
 </div>
 <br />
 <br />
+<div align="center">
+  <p style="line-height: 1.5"> Unix and Linux system administration handbook by Evi Nemeth Garth Snyder Trent R. Hein Ben Whaley Dan Mackin</h3>
+  <p>
+</div>
 
 ---
 
