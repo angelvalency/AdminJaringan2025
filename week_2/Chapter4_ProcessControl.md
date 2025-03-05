@@ -44,17 +44,17 @@
       - [L.1 cron: Menjadwalkan Perintah](#l1-cron-menjadwalkan-perintah)
       - [L.2 Format Crontab](#l2-format-crontab)
       - [Contoh Penggunaan](#contoh-penggunaan)
-      - [F.3 Manajemen Crontab](#f3-manajemen-crontab)
-    - [G. Systemd Timer: Alternatif untuk Cron Job](#g-systemd-timer-alternatif-untuk-cron-job)
-      - [G.1 Melihat Timer yang Aktif](#g1-melihat-timer-yang-aktif)
-      - [G.2 Contoh Konfigurasi Systemd Timer](#g2-contoh-konfigurasi-systemd-timer)
-      - [G.3 Penggunaan Umum Systemd Timer \& Cron Job](#g3-penggunaan-umum-systemd-timer--cron-job)
-      - [G.3.1. Mengirim Email Otomatis](#g31-mengirim-email-otomatis)
-      - [G.3.2. Membersihkan File Sampah Secara Otomatis](#g32-membersihkan-file-sampah-secara-otomatis)
-      - [G.3.3. Rotasi File Log](#g33-rotasi-file-log)
-      - [G.4.4. Menjalankan Batch Job](#g44-menjalankan-batch-job)
-      - [G.5.5. Backup dan Sinkronisasi Data](#g55-backup-dan-sinkronisasi-data)
-
+      - [L.3 Manajemen Crontab](#l3-manajemen-crontab)
+    - [M. Systemd Timer: Alternatif untuk Cron Job](#m-systemd-timer-alternatif-untuk-cron-job)
+      - [M.1 Melihat Timer yang Aktif](#m1-melihat-timer-yang-aktif)
+      - [M.2 Contoh Konfigurasi Systemd Timer](#m2-contoh-konfigurasi-systemd-timer)
+      - [M.3 Penggunaan Umum Systemd Timer \& Cron Job](#m3-penggunaan-umum-systemd-timer--cron-job)
+      - [M.3.1. Mengirim Email Otomatis](#m31-mengirim-email-otomatis)
+      - [M.3.2. Membersihkan File Sampah Secara Otomatis](#m32-membersihkan-file-sampah-secara-otomatis)
+      - [M.3.3. Rotasi File Log](#m33-rotasi-file-log)
+      - [M.4.4. Menjalankan Batch Job](#m44-menjalankan-batch-job)
+      - [M.5.5. Backup dan Sinkronisasi Data](#m55-backup-dan-sinkronisasi-data)
+    
 --- 
 ## Chapter 4: Process Control
 
@@ -377,7 +377,7 @@ lsof -p pid
 
 ---
 
-#### F.3 Manajemen Crontab  
+#### L.3 Manajemen Crontab  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Perintah `crontab` digunakan untuk `membuat, mengedit, atau menghapus jadwal cron`:
 
@@ -398,7 +398,7 @@ lsof -p pid
 
 ---
 
-### G. Systemd Timer: Alternatif untuk Cron Job
+### M. Systemd Timer: Alternatif untuk Cron Job
 
 &nbsp;&nbsp;&nbsp;&nbsp; `Systemd timer` adalah `file konfigurasi unit dalam systemd` yang namanya `diakhiri` dengan `.timer`. `Timer` ini digunakan sebagai `alternatif` dari `cron job` untuk `menjadwalkan tugas secara otomatis`.  
 
@@ -408,7 +408,7 @@ lsof -p pid
 
 ---
 
-#### G.1 Melihat Timer yang Aktif  
+#### M.1 Melihat Timer yang Aktif  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Untuk melihat daftar `timer` yang sedang aktif di sistem, gunakan perintah berikut:  
 
@@ -429,7 +429,7 @@ Fri 2021-10-15 00:00:00 UTC  1h 1min left Thu 2021-10-14 00:00:00 UTC  22h ago  
 
 ---
 
-#### G.2 Contoh Konfigurasi Systemd Timer  
+#### M.2 Contoh Konfigurasi Systemd Timer  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Berikut ini adalah contoh file unit untuk `logrotate.timer`:  
 
@@ -456,9 +456,9 @@ WantedBy=timers.target
 
 ---
 
-#### G.3 Penggunaan Umum Systemd Timer & Cron Job  
+#### M.3 Penggunaan Umum Systemd Timer & Cron Job  
 
-#### G.3.1. Mengirim Email Otomatis  
+#### M.3.1. Mengirim Email Otomatis  
 &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa `mengirim laporan` atau `hasil eksekusi` perintah `ke email secara otomatis`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Contoh: Mengirim laporan bulanan pada pukul 04:30 pagi setiap tanggal 25:  
@@ -472,7 +472,7 @@ Cron
 EOF
 ```
 
-#### G.3.2. Membersihkan File Sampah Secara Otomatis  
+#### M.3.2. Membersihkan File Sampah Secara Otomatis  
  &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa `menggunakan cron atau systemd timer` untuk `menjalankan skrip pembersihan file sampah`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Contoh: Menghapus file yang lebih dari 30 hari di folder **Trash** setiap tengah malam:  
@@ -481,12 +481,12 @@ EOF
 0 0 * * * /usr/bin/find /home/abdou/.local/share/Trash/files -mtime +30 -exec /bin/rm -f {} \;
 ```
 
-#### G.3.3. Rotasi File Log  
+#### M.3.3. Rotasi File Log  
 &nbsp;&nbsp;&nbsp;&nbsp; `Rotasi file log` dilakukan dengan `membagi log` menjadi `beberapa bagian` `berdasarkan ukuran atau tanggal` untuk   `memastikan` bahwa `sistem tidak kehabisan ruang penyimpanan` akibat `file log` yang `terus bertambah`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp; Systemd timer atau cron bisa digunakan untuk menjalankan rotasi log secara berkala.  
 
-#### G.4.4. Menjalankan Batch Job 
+#### M.4.4. Menjalankan Batch Job 
 &nbsp;&nbsp;&nbsp;&nbsp; `Batch job` digunakan untuk `menjalankan tugas berat` seperti `pemrosesan data` dalam `jumlah besar`. Misalnya, sebuah sistem antrian pesan yang harus diproses secara berkala.  
 
 Dengan cron job:  
@@ -497,7 +497,7 @@ Dengan cron job:
 
 &nbsp;&nbsp;&nbsp;&nbsp; Tugas ini akan `berjalan setiap 30 menit untuk memproses antrian pesan`.  
 
-#### G.5.5. Backup dan Sinkronisasi Data  
+#### M.5.5. Backup dan Sinkronisasi Data  
 &nbsp;&nbsp;&nbsp;&nbsp; Kita bisa menggunakan s`istem terjadwal` untuk `melakukan backup` atau `mirroring` `file ke sistem lain`.  
 
 &nbsp;&nbsp;&nbsp;&nbsp;Contoh: Sinkronisasi direktori `/var/backups/` ke server remote setiap hari pukul 01:00 dini hari menggunakan `rsync`:  
