@@ -91,7 +91,7 @@
 ### C.1 Mounting Filesystem
 &nbsp;&nbsp;&nbsp;&nbsp; Untuk menambahkan sistem file ke dalam struktur yang ada, kita menggunakan perintah `mount`. Perintah ini menghubungkan sebuah direktori yang sudah ada (disebut  `mount point ` ) dengan akar dari sistem file baru.
 
- ` `Contoh Mounting: ` `
+ `Contoh Mounting: `
 ```bash
 
 
@@ -108,7 +108,7 @@ mount /dev/sda4 /users
 -  `Force Unmount (`umount -f`)`  
   Menghapus sistem file secara paksa, berguna saat sistem file sedang sibuk.
 
-&nbsp;&nbsp;&nbsp;&nbsp; Sebelum menggunakan  `umount -f `, sebaiknya periksa dulu proses yang menggunakan sistem file dengan  ` ``lsof` ` ` atau  ` ``fuser` ` `.
+&nbsp;&nbsp;&nbsp;&nbsp; Sebelum menggunakan  `umount -f `, sebaiknya periksa dulu proses yang menggunakan sistem file dengan  `lsof` atau  `fuser`.
 
  ` `Contoh Menemukan Proses yang Menggunakan Filesystem: ` `
 ```bash
@@ -126,7 +126,7 @@ msedge   5678 abdou  cwd    DIR    8,1     4096  131073 /home/abdou
 
 &nbsp;&nbsp;&nbsp;&nbsp; Untuk memeriksa lebih lanjut proses yang sedang berjalan, gunakan perintah  `ps`.
 
- ` `Contoh Menginvestigasi Proses yang Menggunakan Filesystem: ` `
+`Contoh Menginvestigasi Proses yang Menggunakan Filesystem:`
 ```bash
 # Menampilkan informasi detail proses dengan PID tertentu
 ps up "1234 5678 91011"
