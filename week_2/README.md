@@ -154,6 +154,21 @@
 
 # Kesimpulan
 
+&nbsp;&nbsp;&nbsp;&nbsp; Dalam bab ini, kita telah mempelajari beberapa konsep penting terkait **File System**, **Process Control**, dan **Software Installation** di Linux, serta langkah-langkah praktis untuk mengelola file dan perangkat lunak di sistem Linux.
+
+1. **File System**:
+   - Menggunakan perintah seperti `git clone` untuk mengunduh repositori dan menyimpan file di dalam direktori yang terstruktur.
+   - Dengan **Access Control Lists (ACLs)**, kita dapat memberikan izin akses yang lebih spesifik untuk pengguna dan grup tertentu, yang lebih fleksibel dibandingkan izin tradisional Unix.
+
+2. **Process Control**:
+   - Pengelolaan **virtual machine** menunjukkan cara mengatasi masalah kernel dan dependensi dengan perintah seperti `sudo apt install`, `dkms`, dan `vboxconfig`.
+   - Ini juga membantu kita mengatasi masalah perangkat keras virtual yang memengaruhi proses virtualisasi.
+
+3. **Software Installation**:
+   - Instalasi perangkat lunak seperti **Git**, **VirtualBox**, dan **Debian ISO** mengajarkan cara mengunduh dan mengonfigurasi perangkat lunak di Linux menggunakan perintah seperti `sudo apt install`, `git clone`, dan `sftp`.
+   - Proses ini juga memberikan pemahaman tentang mengelola perangkat lunak dan menyelesaikan masalah instalasi.
+
+Secara keseluruhan, bab ini memberikan gambaran tentang cara mengelola file, mengontrol proses, serta menginstal perangkat lunak di Linux dengan menggunakan berbagai alat dan perintah yang tersedia.
 
 
 
