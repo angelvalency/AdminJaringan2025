@@ -140,7 +140,7 @@
     ![App Screenshoot](assets/percobaan/isi_ls_etc_resolv_conf.png)
 
     1. `nameserver` → Menentukan alamat IP server DNS yang digunakan untuk melakukan pencarian domain.`8.8.8.8` dan `8.8.4.4 `adalah `DNS publik milik Google`.
-    2. `search` → Menentukan domain default yang akan dicoba ditambahkan ke pencarian nama domain. Jika Anda mencoba mengakses server1, sistem akan mencoba server1.example.com terlebih dahulu.
+    2. `search` → Menentukan domain default yang akan dicoba ditambahkan ke pencarian nama domain. Jika kita mencoba mengakses server1, sistem akan mencoba server1.example.com terlebih dahulu.
     
 7.  Mencoba ping `www`
    
@@ -150,11 +150,11 @@
     
     File `/etc/resolv.conf` membantu sistem menemukan alamat IP dari sebuah nama domain.  
 
-    - **`search pens.ac.id`**: Jika Anda mengetik `ping www`, sistem otomatis mencoba `ping www.pens.ac.id`.  
+    - **`search pens.ac.id`**: Jika kita mengetik `ping www`, sistem otomatis mencoba `ping www.pens.ac.id`.  
   
     - **`nameserver 202.9.85.4` dan `nameserver 202.9.85.3`**: Jika nama domain tidak ditemukan di lokal, sistem akan bertanya ke server DNS ini untuk mendapatkan alamat IP-nya.  
 
-    Jadi, konfigurasi ini memastikan bahwa saat Anda mengetik nama pendek (`www`), sistem tetap bisa menemukan alamat lengkapnya (`www.pens.ac.id`).
+    Jadi, konfigurasi ini memastikan bahwa saat kita mengetik nama pendek (`www`), sistem tetap bisa menemukan alamat lengkapnya (`www.pens.ac.id`).
 
 8. Buka File Root Hints ` /usr/share/dns/root.hints`
    
