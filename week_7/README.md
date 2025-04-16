@@ -14,7 +14,6 @@
   <h3 style="text-align: center;line-height: 1.5">Program Studi Teknik Informatika<br>Departemen Teknik Informatika Dan Komputer<br>Politeknik Elektronika Negeri Surabaya<br>2024/2025</h3>
   <hr>
 </div>
----
 
 # Daftar Isi
 - [Daftar Isi](#daftar-isi)
