@@ -259,9 +259,9 @@ Membuat VM 1 dengan setting 1 network internal dan 1 network public (Bridge Adap
     root@dlp:~# systemctl restart networking
     ```
 
-    ![App Screenshoot](assets/restrat_network_vm2.png)
+    ![App Screenshoot](assets/restrat_network_VM2.png)
 
-    Kemudian kita coba cek lagi IP address VM 2 dengan cara mengetik `ip a` di terminal
+    Kemudian kita coba cek lagi IP address VM 2dengan cara mengetik `ip a` di terminal
 
     ![App Screenshoot](assets/ip-a_vm2_after_berhasil_dhcp.png)
 
