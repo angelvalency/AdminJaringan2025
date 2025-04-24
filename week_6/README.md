@@ -210,11 +210,11 @@ Membuat VM 1 dengan setting 1 network internal dan 1 network public (Bridge Adap
 
 - Membuat file dengan domain lokal dalam kasus ini adalah kelompok3.home
   
-  ![App Screenshoot](assets/isi_nano_etc_bind_kelompok3_home_lan.png)
+  ![App Screenshoot](assets/nano_etc_bind_kelompok3_home_lan.png)
 
 - Membuat File db dengan domain lokal dalam kasus ini adalah kelompok3.home
 
-  ![App Screenshoot](assets/3_168_192_db.png)
+  ![App Screenshoot](assets/nano_etc_bind_3_168_192_db.png)
   
 
 ---
@@ -269,7 +269,7 @@ Membuat VM 1 dengan setting 1 network internal dan 1 network public (Bridge Adap
 
 - Mencoba ping domain lokal ke VM 2 dengan cara mengetik `ping kelompok3.home` di terminal
 
-    ![App Screenshoot](assets/ping_kelompok3_home.png)
+    ![App Screenshoot](assets/ping_kelompok3_home_perbaikan.png)
 
     Berdasarkan hasilnya, ping ke domain lokal berhasil.
 - Mencoba ping 1.1.1.1 yang merupakan server dari DNS
@@ -294,13 +294,13 @@ Membuat VM 1 dengan setting 1 network internal dan 1 network public (Bridge Adap
 
 - Cek DNS Server (Client) menggunakan nama domain
   
-    ![App Screenshoot](assets/dig_ns_kelompok3_home.png)
+    ![App Screenshoot](assets/dig_ns_kelompok3_home_perbaikan.png)
 
     Berdasarkan hasilnya, DNS Server (Client) berhasil menemukan nama domain tanpa ada error dan tersolve ke IP `192.168.3.1` artinya client bisa mengakses server lokal dengan menggunakan nama domain.
 
 - Cek DNS Server (Server) menggunakan IP address
   
-    ![App Screenshoot](assets/dig_x_192_168_3_1.png)
+    ![App Screenshoot](assets/dig_x_192_168_3_1_perbaikan.png)
 
     Berdasarkan hasilnya, DNS Server (Server) berhasil menemukan nama domain tanpa ada error dan tersolve ke IP `192.168.3.1` artinya server bisa mengakses client lokal dengan menggunakan nama domain.
 
