@@ -68,10 +68,10 @@
 
 - **Layanan Sistem Email:**
 
-  a. Komposisi merupakan layanan pertama yang memungkinkan pembuatan pesan dan balasan, dimana pengguna dapat memanfaatkan berbagai editor teks untuk menyusun konten email.
-  b. Transfer berperan sebagai mekanisme pengiriman pesan dari pengirim menuju penerima melalui jaringan email.
-  c. Pelaporan memberikan konfirmasi status pengiriman, membantu pengguna melacak apakah email mereka berhasil terkirim, gagal, atau ditolak oleh sistem.
-  d. Menampilkan bertanggung jawab menyajikan pesan email dalam format yang mudah dipahami dan diakses oleh pengguna.
+  a. Komposisi merupakan layanan pertama yang memungkinkan pembuatan pesan dan balasan, dimana pengguna dapat memanfaatkan berbagai editor teks untuk menyusun konten email. <br />
+  b. Transfer berperan sebagai mekanisme pengiriman pesan dari pengirim menuju penerima melalui jaringan email. <br />
+  c. Pelaporan memberikan konfirmasi status pengiriman, membantu pengguna melacak apakah email mereka berhasil terkirim, gagal, atau ditolak oleh sistem. <br />
+  d. Menampilkan bertanggung jawab menyajikan pesan email dalam format yang mudah dipahami dan diakses oleh pengguna. <br />
   e. Disposisi mengatur tindakan lanjutan setelah email diterima, termasuk opsi untuk menyimpan pesan, menghapus sebelum dibaca, atau menghapus setelah dibaca sesuai kebutuhan penerima.
 
 ### A.3. Alur Pengiriman Email dari User A ke User B
