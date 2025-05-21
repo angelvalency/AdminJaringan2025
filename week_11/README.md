@@ -23,10 +23,10 @@
     - [A.3. Alur Pengiriman Email dari User A ke User B](#a3-alur-pengiriman-email-dari-user-a-ke-user-b)
     - [A.4. Keuntungan dan Kerugian Email](#a4-keuntungan-dan-kerugian-email)
 - [B.Install Postfix](#binstall-postfix)
-    - [B.1.  Konfigurasi SMTP-Auth untuk menggunakan fungsi SASL Dovecot](#b1--konfigurasi-smtp-auth-untuk-menggunakan-fungsi-sasl-dovecot)
+    - [Konfigurasi SMTP-Auth untuk menggunakan fungsi SASL Dovecot](#konfigurasi-smtp-auth-untuk-menggunakan-fungsi-sasl-dovecot)
 - [C. Installasi Devecot](#c-installasi-devecot)
     - [Konfigurasi untuk menyediakan fungsi SASL ke Posfix](#konfigurasi-untuk-menyediakan-fungsi-sasl-ke-posfix)
-- [C. Add Mail Server](#c-add-mail-server)
+- [D. Add Mail Server](#d-add-mail-server)
 - [Referensi](#referensi)
 
 
@@ -179,7 +179,7 @@ Dapat mengalami gangguan teknis seperti masalah server yang mengakibatkan layana
   
 Instal Postfix digunakan untuk mengonfigurasi Server SMTP
 
- ### B.1.  Konfigurasi SMTP-Auth untuk menggunakan fungsi SASL Dovecot
+ ### Konfigurasi SMTP-Auth untuk menggunakan fungsi SASL Dovecot
 
 1. Instalasi Paket Postfix dan sasl2-bin
   
@@ -298,7 +298,7 @@ Install Devecot untuk mengonfigurasi server POP/IMAP
 
     ![App Screenshot](assets/InstallDevecot/6.png)
 
-# C. Add Mail Server
+# D. Add Mail Server
 
 Tambahkan akun pengguna mail untuk menggunakan mail server
 
