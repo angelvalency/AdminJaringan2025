@@ -1,6 +1,6 @@
 <div align="center">
   <h1 style="font-weight: bold"> LAPORAN PRAKTIKUM WORKSHOP ADMINISTRASI JARINGAN</h1>
-   <h1 style="font-weight: bold"> TOPOLOGI JARINGAN DAN .. </h1>
+   <h1 style="font-weight: bold"> TOPOLOGI JARINGAN DAN WEB SERVER </h1>
   <h4 style="text-align: center;">Dosen Pengampu : Dr. Ferry Astika Saputra, S.T., M.Sc.</h4>
 </div>
 <br />
@@ -35,6 +35,9 @@
  ![App Screenshot](assets/tugas.jpg)
 
  <img src="assets/topologi.drawio.png" alt="drawing" width="600"/>
+ <br>
+ <br>
+ <br>
 
 # Percobaan
 
@@ -209,3 +212,6 @@ Untuk konfigurasi zone file, masuk di `/etc/bind/db.kelompok3.home` dan `/etc/bi
     Jika Konfigurasi sudah di reload dan berhasil, maka bisa di-test dengan browser domain yang sudah dikonfigurasi dari awal tadi
 
     ![App Screenshot](assets/BERHASILCOYYYYYY.png)
+
+    Edit tampilan file HTML dengan mengedit file `/var/www/html/index.html` dengan editor teks biasa seperti nano, emacs, vim, etc. menjadi seperti gambar dibawah ini.
+    ![App Screenshot](assets/web_server_k3.png)
